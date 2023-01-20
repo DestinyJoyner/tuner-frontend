@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import axios from "axios";
+import Nav from "./Nav";
 
 export const ContextData = createContext()
 
@@ -10,6 +11,7 @@ function Provider({children}) {
        <ContextData.Provider value ={{
         API,
        }}>
+        <Nav />
 
         {children}
        </ContextData.Provider>
