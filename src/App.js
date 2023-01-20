@@ -1,7 +1,15 @@
+import RouteComponent from "./Components/RouteComponent";
+import Provider from "./Components/Provider";
+
 function App() {
   return (
-    <div className="">
-      <h1>Tuner App</h1>
+    <div className="App">
+      <Provider>
+        <RouteComponent />
+      </Provider>
+
+      
+     
     </div>
   );
 }
