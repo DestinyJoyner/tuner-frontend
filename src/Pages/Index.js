@@ -1,10 +1,8 @@
-import React from 'react';
+import SongsIndex from "../Components/SongsIndex";
 
-function Index(props) {
+function Index() {
     return (
-        <div>
-            Index Page
-        </div>
+       <SongsIndex />
     );
 }
 

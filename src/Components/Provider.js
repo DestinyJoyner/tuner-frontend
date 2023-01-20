@@ -10,6 +10,7 @@ function Provider({children}) {
     return (
        <ContextData.Provider value ={{
         API,
+        axios,
        }}>
         <Nav />
 
