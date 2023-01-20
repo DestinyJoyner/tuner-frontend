@@ -3,8 +3,7 @@ import Home from "../Pages/Home";
 import Index from "../Pages/Index";
 import Show from "../Pages/Show";
 
-
-function RouteComponent(props) {
+function RouteComponent() {
     return (
         <Routes>
             <Route path ="/">

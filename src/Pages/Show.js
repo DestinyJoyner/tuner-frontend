@@ -1,10 +1,8 @@
-import React from 'react';
+import SongsShow from "../Components/SongsShow";
 
-function Show(props) {
+function Show() {
     return (
-        <div>
-            Show
-        </div>
+        <SongsShow />
     );
 }
 
