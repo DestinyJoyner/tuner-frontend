@@ -1,10 +1,8 @@
-import React from 'react';
+import SongsEditForm from "../Components/SongsEditForm";
 
-function Edit(props) {
+function Edit(p) {
     return (
-        <div>
-            edit form
-        </div>
+       <SongsEditForm />
     );
 }
 
