@@ -25,14 +25,11 @@ function SongsEditForm() {
 
     return (
         <div className="edit">
-
             <h2>Edit Form</h2>
-
             <Form 
             submitFunction={handleSubmit}
             stateVar={editForm}
-            setFunction={setEditForm} />  
-
+            setFunction={setEditForm} /> 
         </div>
     );
 }
