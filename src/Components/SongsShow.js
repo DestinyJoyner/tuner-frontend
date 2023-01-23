@@ -2,9 +2,11 @@ import { useContext, useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ContextData } from "./Provider";
 import CheckboxInput from "../ReusableComponents/CheckboxInput";
-import { GrEdit } from "react-icons/gr"
+import { TiEdit } from "react-icons/ti"
 import { MdDeleteForever } from "react-icons/md"
-import { AiFillFastBackward } from "react-icons/ai"
+import { AiFillFastBackward, AiFillFastForward } from "react-icons/ai"
+import musicFreq from "../assets/music-freq.png"
+import playSong from "../assets/play-song-pic.png"
 import "./SongsShow.css"
 
 function SongsShow() {
@@ -29,38 +31,51 @@ function SongsShow() {
 
     return (
         <div className='show center-page'>
-            {
-                thisSong.id && 
-                <>
-                <h2>{thisSong.name}</h2>
+           
+            <div className="show-screen center-page">
+                <h2 className="scroll-text">
+                    <span>{thisSong.name}</span>
+                </h2>
+                <img src ={playSong} alt="songPic" />
                 <p>{thisSong.artist}</p>
                 <p>{thisSong.album}</p>
-                <p>{thisSong.time}</p>
-                <CheckboxInput 
-                idValue={id}
-                value = {"is_favorite"}
-                stateVar = {thisSong}
-                checkboxVar = {favorite}
-                checkboxFunction = {setFavorite}/>
-                </>
-            }
+            </div>
+
+            <img src={musicFreq} alt="frequency" />
+            <hr/>
+            <p>{thisSong.time}</p>
+            <CheckboxInput 
+            idValue={id}
+            value = {"is_favorite"}
+            stateVar = {thisSong}
+            checkboxVar = {favorite}
+            checkboxFunction = {setFavorite}
+            iconSize = {"5px"}
+            />
             <section className="show-buttons">
                 <Link to = {`/songs`}>
                     <AiFillFastBackward
-                    size={"30px"} />
+                    size={"30px"}
+                    color={"white"} />
                 </Link>
 
                 <Link to = {`/songs/${id}/edit`}>
-                    <GrEdit
-                    size ={"30px"} />
+                    <TiEdit
+                    size ={"40px"}
+                    color= {"white"} />
                 </Link>
 
-                <span
+                <AiFillFastForward
+                size={"30px"}
+                color={"white"} />
+            </section>
+
+            <span
                 className="show-delete"
                 onClick={() => deletePrompt()}>
-                    <MdDeleteForever size = {"36px"} />
-                </span>
-            </section>
+                    <MdDeleteForever size = {"30px"} />
+            </span>
+            
         </div>
     );
 }
