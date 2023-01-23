@@ -19,22 +19,38 @@ function CheckboxInput({idValue, value, stateVar, checkboxVar, checkboxFunction,
     }
 
     return (
-        <label htmlFor={value}>
-            <IconCheckbox 
-            type = "checkbox"
-            id = {value}
-            checked = {checkboxVar}
-            checkedIcon={
-                <IconContext.Provider value={{color: "gold", height: {iconSize}}}>
-                    <FaStar />
-                </IconContext.Provider>}
-            uncheckedIcon={
-                <IconContext.Provider value={{color: "white", height: {iconSize}}}>
-                    <TbStarOff />
-                </IconContext.Provider>}
-            onClick={() => handleCheckbox()}
-            />
-        </label>
+        // <label htmlFor={value}>
+        //     <IconCheckbox 
+        //     type = "checkbox"
+        //     id = {value}
+        //     checked = {checkboxVar}
+        //     checkedIcon={
+        //         <IconContext.Provider value={{color: "gold", size:`${iconSize}`}}>
+        //             <FaStar />
+        //         </IconContext.Provider>}
+        //     uncheckedIcon={
+        //         <IconContext.Provider value={{color: "white", size:`${iconSize}`}}>
+        //             <TbStarOff />
+        //         </IconContext.Provider>}
+        //     onClick={() => handleCheckbox()}
+        //     />
+        // </label>
+
+        <IconCheckbox 
+        type = "checkbox"
+        id = {value}
+        checked = {checkboxVar}
+        checkedIcon={
+            <IconContext.Provider value={{color: "gold", size:`${iconSize}`}}>
+                <FaStar />
+            </IconContext.Provider>}
+        uncheckedIcon={
+            <IconContext.Provider value={{color: "white", size:`${iconSize}`}}>
+                <TbStarOff />
+            </IconContext.Provider>}
+        onClick={() => handleCheckbox()}
+        />
+    
     );
 }
 

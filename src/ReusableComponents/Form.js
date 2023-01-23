@@ -1,11 +1,12 @@
 import TextInput from "./TextInput";
 import CheckboxInput from "./CheckboxInput";
+import "./Form.css"
 
 function Form({submitFunction, stateVar, setFunction, checkboxVar, checkboxFunction}) {
 
     return (
        <form
-       className='form'
+       className='form center-page'
        onSubmit={(event) => submitFunction(event)}>
 
         <TextInput
@@ -37,10 +38,11 @@ function Form({submitFunction, stateVar, setFunction, checkboxVar, checkboxFunct
         stateVar = {stateVar}
         checkboxVar = {checkboxVar}
         checkboxFunction = {checkboxFunction}
+        iconSize = {"60px"}
         />
         
         <input 
-        className="submitButtton"
+        className="submitButton"
         type="submit" />
 
        </form>

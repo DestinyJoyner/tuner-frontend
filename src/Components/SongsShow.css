@@ -11,7 +11,7 @@
     margin-top: 20px;
     font-size: 20px;
     width: 50%;
-    height: 80vh;
+    height: 90vh;
     border-radius: 5%;
     color: white;
     background-color: black;
@@ -92,16 +92,13 @@
     grid-row: 3;
     grid-column: 1;
     margin: 0;
-    /* color: red; */
     padding: 2px;
     align-self: end;
 }
 .show label {
     grid-row: 4;
     grid-column: 1;
-    margin-top: 12%;
-    justify-self: center;
-    width: 80%;
+    align-self: center;
 }
 
 .show-delete {

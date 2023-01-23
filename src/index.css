@@ -14,6 +14,14 @@
     font-family: "BouncyThin";
     src: local("BouncyThin"), url("./Fonts/BouncyThin.otf") format("truetype");
 }
+@font-face {
+    font-family: "Street";
+    src: local("Street"), url("./Fonts/Street.otf") format("truetype");
+}
+@font-face {
+    font-family: "DonGraffiti";
+    src: local("DonGraffiti"), url("./Fonts/DonGraffiti.otf") format("truetype");
+}
 
 .App {
     position: fixed;

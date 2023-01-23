@@ -50,7 +50,7 @@ function SongsShow() {
             stateVar = {thisSong}
             checkboxVar = {favorite}
             checkboxFunction = {setFavorite}
-            iconSize = {"5px"}
+            iconSize = {"30px"}
             />
             <section className="show-buttons">
                 <Link to = {`/songs`}>
