@@ -19,7 +19,7 @@ function CheckboxInput({idValue, value, stateVar, checkboxVar, checkboxFunction}
     }
 
     return (
-        <label htmlFor={value}>Favorite?: {" "}
+        <label htmlFor={value}>Favorite? <br/>
             <IconCheckbox 
             type = "checkbox"
             id = {value}

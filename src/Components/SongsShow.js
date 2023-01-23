@@ -1,7 +1,10 @@
 import { useContext, useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { ContextData } from "./Provider";
 import CheckboxInput from "../ReusableComponents/CheckboxInput";
+import { GrEdit } from "react-icons/gr"
+import { MdDeleteForever } from "react-icons/md"
+import { AiFillFastBackward } from "react-icons/ai"
 import "./SongsShow.css"
 
 function SongsShow() {
@@ -9,6 +12,11 @@ function SongsShow() {
     const {id} = useParams()
     const [thisSong, setThisSong] = useState({})
     const [favorite, setFavorite] = useState(false)
+
+    function deletePrompt() {
+        // temp for now
+        alert(`delete?`)
+    }
 
     useEffect(() => {
         axios.get(`${API}/songs/${id}`)
@@ -19,9 +27,8 @@ function SongsShow() {
         .catch(err => console.log(err))
     },[id])
 
-
     return (
-        <div className='show'>
+        <div className='show center-page'>
             {
                 thisSong.id && 
                 <>
@@ -37,6 +44,23 @@ function SongsShow() {
                 checkboxFunction = {setFavorite}/>
                 </>
             }
+            <section className="show-buttons">
+                <Link to = {`/songs`}>
+                    <AiFillFastBackward
+                    size={"30px"} />
+                </Link>
+
+                <Link to = {`/songs/${id}/edit`}>
+                    <GrEdit
+                    size ={"30px"} />
+                </Link>
+
+                <span
+                className="show-delete"
+                onClick={() => deletePrompt()}>
+                    <MdDeleteForever size = {"36px"} />
+                </span>
+            </section>
         </div>
     );
 }
