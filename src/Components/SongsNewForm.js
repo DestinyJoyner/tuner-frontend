@@ -13,6 +13,7 @@ function SongsNewForm() {
         time: "",
         is_favorite: true
     })
+    const [checked, setChecked] = useState(false)
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -28,7 +29,9 @@ function SongsNewForm() {
             <Form
             submitFunction={handleSubmit}
             stateVar={newForm}
-            setFunction={setNewForm} 
+            setFunction={setNewForm}
+            checkboxVar = {checked}
+            checkboxFunction = {setChecked} 
             />     
         </div>
     );

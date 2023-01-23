@@ -1,6 +1,7 @@
 import TextInput from "./TextInput";
+import CheckboxInput from "./CheckboxInput";
 
-function Form({submitFunction, stateVar, setFunction}) {
+function Form({submitFunction, stateVar, setFunction, checkboxVar, checkboxFunction}) {
 
     return (
        <form
@@ -30,6 +31,13 @@ function Form({submitFunction, stateVar, setFunction}) {
         value = {"time"}
         stateVar = {stateVar}
         setFunction = {setFunction}  />
+
+        <CheckboxInput 
+        value = {"is_favorite"}
+        stateVar = {stateVar}
+        checkboxVar = {checkboxVar}
+        checkboxFunction = {checkboxFunction}
+        />
         
         <input 
         className="submitButtton"

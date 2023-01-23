@@ -8,6 +8,7 @@ function SongsEditForm() {
     const {id} = useParams()
     const navigate = useNavigate()
     const [editForm, setEditForm] = useState({})
+    const [checked, setChecked] =useState(false)
 
     function handleSubmit(e) {
        e.preventDefault()
@@ -19,7 +20,10 @@ function SongsEditForm() {
 
     useEffect(() => {
         axios.get(`${API}/songs/${id}`)
-        .then(respJson => setEditForm(respJson.data))
+        .then(respJson => {
+            setEditForm(respJson.data)
+            setChecked(respJson.data.is_favorite)
+        })
         .catch(err => console.log(err))
     }, [id])
 
@@ -29,7 +33,9 @@ function SongsEditForm() {
             <Form 
             submitFunction={handleSubmit}
             stateVar={editForm}
-            setFunction={setEditForm} /> 
+            setFunction={setEditForm}
+            checkboxVar = {checked}
+            checkboxFunction = {setChecked}  /> 
         </div>
     );
 }
