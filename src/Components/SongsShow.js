@@ -6,6 +6,7 @@ import { TiEdit } from "react-icons/ti"
 import { MdDeleteForever } from "react-icons/md"
 import { AiFillFastBackward, AiFillFastForward } from "react-icons/ai"
 import musicFreq from "../assets/music-freq.png"
+import playSong from "../assets/play-song-pic.png"
 import "./SongsShow.css"
 
 function SongsShow() {
@@ -32,7 +33,10 @@ function SongsShow() {
         <div className='show center-page'>
            
             <div className="show-screen center-page">
-                <h2>{thisSong.name}</h2>
+                <h2 className="scroll-text">
+                    <span>{thisSong.name}</span>
+                </h2>
+                <img src ={playSong} alt="songPic" />
                 <p>{thisSong.artist}</p>
                 <p>{thisSong.album}</p>
             </div>

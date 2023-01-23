@@ -1,4 +1,9 @@
+@font-face {
+    font-family: "FaseBulan";
+    src: local("GFaseBulan"), url("./Fonts/FaseBulan.otf") format("truetype");
+}
 
 .App {
     margin-top: 50px;
+    overflow-y: scroll;
 }
