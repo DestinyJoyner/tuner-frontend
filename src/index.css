@@ -22,6 +22,10 @@
     font-family: "DonGraffiti";
     src: local("DonGraffiti"), url("./Fonts/DonGraffiti.otf") format("truetype");
 }
+@font-face {
+    font-family: "Souvenir-Bold";
+    src: local("Souvenir-Bold"), url("./Fonts/Souvenir-Bold.otf") format("truetype");
+}
 
 .App {
     position: fixed;

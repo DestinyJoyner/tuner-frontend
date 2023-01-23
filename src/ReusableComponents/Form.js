@@ -42,7 +42,7 @@ function Form({submitFunction, stateVar, setFunction, checkboxVar, checkboxFunct
         />
         
         <input 
-        className="submitButton"
+        className="submitButton cursor"
         type="submit" />
 
        </form>
