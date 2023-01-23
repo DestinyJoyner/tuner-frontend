@@ -8,7 +8,8 @@
     justify-items: center;
     border: 1px solid black;
     border-radius: 20px;
-    background-color: rgba(25, 134, 148, 0.835);
+    background-color: #008d97c0;
+    text-shadow: rgb(3, 3, 87) 3px 2px 2px;
 }
 
 .index h1 {
@@ -27,5 +28,8 @@
 }
 
 .index a {
-    color: rgb(22, 12, 98);
+    color: #FC4C02;
+}
+.index a:hover {
+    transform: scale(1.2);
 }
