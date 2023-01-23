@@ -14,6 +14,9 @@
 
 .index h1 {
     grid-row: 1;
+    font-family: AttackGraffiti;
+    font-size: 50px;
+    letter-spacing: 8px;
     
 }
 
@@ -23,8 +26,10 @@
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
     color: yellow;
-    font-size: 20px;
-    font-family: FaseBulan;
+    font-size: 18px;
+    /* font-family: FaseBulan; */
+    font-family: BouncyThin;
+    letter-spacing: 2px;
 }
 
 .index a {
