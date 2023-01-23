@@ -2,8 +2,19 @@
     font-family: "FaseBulan";
     src: local("GFaseBulan"), url("./Fonts/FaseBulan.otf") format("truetype");
 }
+@font-face {
+    font-family: "AttackGraffiti";
+    src: local("AttackGraffiti"), url("./Fonts/AttackGraffiti.otf") format("truetype");
+}
 
 .App {
-    margin-top: 50px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-top: 35px;
     overflow-y: scroll;
+    background-image: url("/public/music-graffiti.jpeg");
+    background-size: cover;
 }

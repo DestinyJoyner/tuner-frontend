@@ -15,7 +15,7 @@ function SongsIndex() {
     }, [])
 
     return (
-        <div className="index">
+        <div className="index center-page">
             <h1>Songs</h1>
             {
                 songs.length > 0 &&

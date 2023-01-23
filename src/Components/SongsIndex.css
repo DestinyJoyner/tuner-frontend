@@ -1,10 +1,14 @@
 
 .index {
+    width: 80%;
+    margin-top: 30px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: .3fr auto;
     justify-items: center;
-    text-align: center;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: rgba(25, 134, 148, 0.835);
 }
 
 .index h1 {
@@ -13,8 +17,15 @@
 }
 
 .index .song {
+    height: 60px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
-    
+    color: yellow;
+    font-size: 20px;
+    font-family: FaseBulan;
+}
+
+.index a {
+    color: rgb(22, 12, 98);
 }
