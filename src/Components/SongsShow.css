@@ -10,7 +10,7 @@
 .show {
     margin-top: 20px;
     font-size: 20px;
-    width: 50%;
+    max-width: 450px;
     height: 90vh;
     border-radius: 5%;
     color: white;

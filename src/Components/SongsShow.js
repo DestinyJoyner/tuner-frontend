@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { ContextData } from "./Provider";
 import CheckboxInput from "../ReusableComponents/CheckboxInput";
 import { TiEdit } from "react-icons/ti"
@@ -12,12 +12,15 @@ import "./SongsShow.css"
 function SongsShow() {
     const {API, axios} = useContext(ContextData)
     const {id} = useParams()
+    const navigate = useNavigate()
     const [thisSong, setThisSong] = useState({})
     const [favorite, setFavorite] = useState(false)
 
     function deletePrompt() {
-        // temp for now
-        alert(`delete?`)
+        // create notification modal
+        axios.delete(`${API}/songs/${id}`)
+        .then(() => navigate('/songs'))
+        .catch(err => console.log(err))
     }
 
     useEffect(() => {
@@ -29,9 +32,9 @@ function SongsShow() {
         .catch(err => console.log(err))
     },[id])
 
+
     return (
         <div className='show center-page'>
-           
             <div className="show-screen center-page">
                 <h2 className="scroll-text">
                     <span>{thisSong.name}</span>
@@ -71,7 +74,7 @@ function SongsShow() {
             </section>
 
             <span
-                className="show-delete"
+                className="show-delete cursor"
                 onClick={() => deletePrompt()}>
                     <MdDeleteForever size = {"30px"} />
             </span>

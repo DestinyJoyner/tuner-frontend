@@ -16,7 +16,7 @@ function Provider({children}) {
         axios,
        }}>
         <Nav />
-
+       
         {children}
        </ContextData.Provider>
     );
