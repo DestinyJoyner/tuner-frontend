@@ -31,7 +31,10 @@
     width: 90%;
     grid-column: 2;
     grid-row: 1;
+    border: 1px solid white;
 }
+
+
 
 .show-screen p {
     font-family: FaseBulan;

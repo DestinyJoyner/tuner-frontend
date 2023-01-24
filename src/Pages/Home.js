@@ -1,10 +1,8 @@
-import React from 'react';
+import HomePage from "../Components/HomePage";
 
 function Home() {
     return (
-        <div className='home'>
-            <h1>Tuner App</h1>
-        </div>
+        <HomePage />
     );
 }
 

@@ -9,11 +9,11 @@
     justify-items: center;
     align-items: center;
     z-index: 500;
-    background: linear-gradient(to right, #ff2d65, #fb5c3c) ;
+    background: linear-gradient(to right, #01048B, #188AF0, #00F800);
+    
 }
 
 nav a {
-    /* font-family: BouncyThin; */
     font-family: AttackGraffiti;
     font-size: 26px;
     color: #3e0964;

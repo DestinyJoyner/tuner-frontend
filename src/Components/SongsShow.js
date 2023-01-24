@@ -67,7 +67,7 @@ function SongsShow() {
                     size ={"40px"}
                     color= {"white"} />
                 </Link>
-
+                {/* find id of next song (array of id's from use effect) to go to show page of next song*/}
                 <AiFillFastForward
                 size={"30px"}
                 color={"white"} />
