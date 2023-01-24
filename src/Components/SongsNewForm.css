@@ -1,0 +1,35 @@
+
+.new {
+   background-image: url("/public/neon-purple-music.jpg");
+   font-family: DonGraffiti;
+}
+
+.new form {
+    color: #b24eec;
+    text-shadow: rgba(187, 187, 187, 0.566) 0px 0px 15px;
+    font-size: 40px;
+    letter-spacing: 3px;
+}
+
+.new form input {
+    background-color: rgb(17, 16, 16);
+    color: white;
+    border: #b24eec 2px solid;
+}
+
+.new form .submitButton {
+    background-color: #370654;
+    border: 2px solid #b24eec;
+    font-family: DonGraffiti;
+    font-size: 25px;
+    letter-spacing: 6px;
+}
+
+.new .form-aside {
+    background-color: #270b38e3;
+    color: white;
+    text-shadow: rgba(241, 239, 239, 0.566) 0px 0px 15px;
+    font-size: 34px;
+    letter-spacing: 1px;
+    border: white 2px solid;
+}

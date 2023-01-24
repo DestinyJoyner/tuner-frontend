@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ContextData } from "./Provider";
+import dj from "../assets/dj-green.png"
 import "./SongsIndex.css"
 
 function SongsIndex() {
@@ -16,12 +17,22 @@ function SongsIndex() {
 
     return (
         <div className="index center-page">
-            <h1>Songs</h1>
+            <section className="index-top-header">
+                <img src ={dj} alt="dj" />
+                <h1>SONGS</h1>
+                <img src ={dj} alt="dj" />
+            </section>
+        
+            <div className="song-headers">
+                <h3>Title</h3>
+                <h3>Artist</h3>
+                <h3>Album</h3>
+            </div>
             {
                 songs.length > 0 &&
                 songs.map(({name, artist, album, id}) => 
                     <div className="song" key = {id}>
-                        <Link to = {`/songs/${id}`}><h3>{name}</h3></Link>
+                        <Link to = {`/songs/${id}`}><h3>"{name}"</h3></Link>
                         <p>{artist}</p>
                         <p>{album}</p>
                     </div>

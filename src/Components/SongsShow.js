@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { ContextData } from "./Provider";
 import CheckboxInput from "../ReusableComponents/CheckboxInput";
 import { TiEdit } from "react-icons/ti"
@@ -12,12 +12,15 @@ import "./SongsShow.css"
 function SongsShow() {
     const {API, axios} = useContext(ContextData)
     const {id} = useParams()
+    const navigate = useNavigate()
     const [thisSong, setThisSong] = useState({})
     const [favorite, setFavorite] = useState(false)
 
     function deletePrompt() {
-        // temp for now
-        alert(`delete?`)
+        // create notification modal
+        axios.delete(`${API}/songs/${id}`)
+        .then(() => navigate('/songs'))
+        .catch(err => console.log(err))
     }
 
     useEffect(() => {
@@ -29,10 +32,10 @@ function SongsShow() {
         .catch(err => console.log(err))
     },[id])
 
+
     return (
         <div className='show center-page'>
-           
-            <div className="show-screen center-page">
+            <div className="show-screen center-page background-image">
                 <h2 className="scroll-text">
                     <span>{thisSong.name}</span>
                 </h2>
@@ -64,14 +67,14 @@ function SongsShow() {
                     size ={"40px"}
                     color= {"white"} />
                 </Link>
-
+                {/* find id of next song (array of id's from use effect) to go to show page of next song*/}
                 <AiFillFastForward
                 size={"30px"}
                 color={"white"} />
             </section>
 
             <span
-                className="show-delete"
+                className="show-delete cursor"
                 onClick={() => deletePrompt()}>
                     <MdDeleteForever size = {"30px"} />
             </span>

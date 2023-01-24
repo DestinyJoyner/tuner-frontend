@@ -3,19 +3,23 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 40px;
+    height: 50px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: .5fr repeat(3, 1fr);
     justify-items: center;
     align-items: center;
     z-index: 500;
-    background: linear-gradient(to right, #ff2d65, #fb5c3c) ;
+    background: linear-gradient(to right, #01048B, #188AF0, #00F800);
 }
 
 nav a {
-    /* font-family: BouncyThin; */
     font-family: AttackGraffiti;
     font-size: 26px;
     color: #3e0964;
     text-decoration: none;
+}
+
+.nav img {
+    height: 50px;
+    margin: 0;
 }

@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useContextProvider } from "./Provider";
 import Form from "../ReusableComponents/Form";
+import back from "../assets/music-back-new.png"
+import "./SongsNewForm.css"
 
 function SongsNewForm() {
     const {API, axios} = useContextProvider()
@@ -24,8 +26,14 @@ function SongsNewForm() {
     }
 
     return (
-        <div className="new">
-            <h2>New Song Form</h2>
+        <div className="new center-page background-image">
+            <aside className="form-aside">
+                <h2>Add New Song</h2>
+                <Link to = {`/songs`}>
+                    <img src = {back} alt="back-button" />
+                </Link>
+            </aside>
+            
             <Form
             submitFunction={handleSubmit}
             stateVar={newForm}

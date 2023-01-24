@@ -1,0 +1,39 @@
+
+.home{
+    width: 60%;
+    height: 80vh;
+    margin-top: 50px;
+    border-radius: 20px;
+    position: relative;
+    /* background: linear-gradient(to right, red, purple); */
+    background-color: rgba(0, 0, 0, 0.899);
+    padding: 3px;
+    font-family: Bouncy;
+    color: #fb5c3c ;
+    font-size: 26px;
+    border: 2px solid #FF5F1F;
+    letter-spacing: 2px;
+}
+
+.home h1{
+    margin: 0;
+    font-size: 40px;
+    padding: 10px;
+}
+
+.home p {
+    margin: 0;
+    padding: 10px;
+    color: #f14607;
+}
+
+.homePage {
+    padding: 1rem;
+    background-image: url("/public/neon-cassette.gif");
+    border-radius: 20px;
+    width: 85%;
+}
+
+.home img {
+    height: 250px;
+}
