@@ -30,7 +30,7 @@ function SongsEditForm() {
     }, [id])
 
     return (
-        <div className="edit center-page">
+        <div className="edit center-page background-image">
             <aside className="form-aside">
                 <div className="music-notes"></div>
                 <h2>Edit Song Info</h2>

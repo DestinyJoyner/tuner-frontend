@@ -35,7 +35,7 @@ function SongsShow() {
 
     return (
         <div className='show center-page'>
-            <div className="show-screen center-page">
+            <div className="show-screen center-page background-image">
                 <h2 className="scroll-text">
                     <span>{thisSong.name}</span>
                 </h2>

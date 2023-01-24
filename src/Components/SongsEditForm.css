@@ -1,12 +1,5 @@
 .edit {
-    display: grid;
-    grid-template-columns: .25fr 1fr;
-    margin-top: 40px;
-    width: 80%;
     background-image: url("/public/vintage-cassette.gif");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     font-family: Souvenir-Bold;
 }
 
@@ -15,7 +8,6 @@
     letter-spacing: 2px;
     text-shadow: #34231c 3px 4px 1px;
     color: #f1d097;
-    width: 90%;
 }
 
 .edit form input {
@@ -32,13 +24,8 @@
 }
 
 .edit .form-aside {
-    grid-column: 1;
-    display: grid;
-    grid-template-rows: auto;
-    align-items: center;
     background-color: #5d4532;
     border:2px solid#91351b;
-    border-radius: 15px;
 }
 
 .edit .form-aside h2 {

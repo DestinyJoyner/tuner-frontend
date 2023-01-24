@@ -6,9 +6,29 @@
     text-align: center; 
 }
 
+.background-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 .cursor:hover {
     cursor: pointer;
+}
 
+.edit, .new {
+    display: grid;
+    grid-template-columns: .25fr 1fr;
+    margin-top: 40px;
+    width: 80%;
+}
+
+.form-aside {
+    grid-column: 1;
+    display: grid;
+    grid-template-rows: auto;
+    align-items: center;
+    border-radius: 15px;
 }
 
 @keyframes beat{

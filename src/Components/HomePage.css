@@ -28,14 +28,12 @@
 }
 
 .homePage {
-    padding: 2rem;
+    padding: 1rem;
     background-image: url("/public/neon-cassette.gif");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
     border-radius: 20px;
     width: 85%;
 }
+
 .home img {
     height: 250px;
 }
