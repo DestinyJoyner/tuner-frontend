@@ -10,9 +10,9 @@ function RouteComponent() {
         <Routes>
             <Route path ="/">
                 <Route index element = {<Home />} />
-                <Route path = "new" element = {<New />} />
                 <Route path = "songs">
                     <Route index element = {<Index />} />
+                    <Route path = "new" element = {<New />} />
                     <Route path = ":id">
                         <Route index element = {<Show />} />
                         <Route path = "edit" element = {<Edit />} />

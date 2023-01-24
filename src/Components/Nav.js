@@ -8,7 +8,7 @@ function Nav() {
             <img src={turntable} alt="turntable" />
             <Link to ="/">Home</Link>
             <Link to = "/songs">Songs</Link>
-            <Link to = "/new">New Song</Link>
+            <Link to = "/songs/new">New Song</Link>
         </nav>
     );
 }
