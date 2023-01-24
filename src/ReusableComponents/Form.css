@@ -3,39 +3,21 @@
     height: 80vh;
     border: 1px solid black;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.723);
-    /* background-image: url("/public/neon-cassette.gif"); */
-    background-image: url("/public/vintage-cassette.gif");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-color: rgba(0, 0, 0, 0.743);
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     justify-items: center;
-    font-family: Souvenir-Bold;
-    font-size: 34px;
-    letter-spacing: 2px;
-    text-shadow: #34231c 3px 4px 1px;
-    /* color: #471871 ; */
-    color: #f1d097
-    ;
-    /* #c14c2c */
-    /* color: #00ffec; */
 }
 
 .form label {
     margin-top: 25px;
 }
-.form label:first-child {
-    margin-top: 70px;
-}
+
 .form label:nth-child(5) {
     margin: 0;
     height: 60px;
     width: fit-content;
-    border: 1px solid black;
-    background-color: rgba(0, 0, 0, 0.649);
 }
 
 .form label:nth-child(5) span span svg {
@@ -48,17 +30,11 @@
     border-radius: 20px;
     height: 25px;
     width: 250px;
-    /* background-color: #5c5c4c; */
-    background-color: #80634b;
-    color: #f1d097 ;
+    text-indent: 10px;
 }
 
 .form .submitButton {
-    width: 30%;
     margin: 10px;
-    height: 40px;
-    background-color:#91351b;
-    font-family: Souvenir-Bold;
-    font-size: 30px;
-    letter-spacing: 2px;
+    height: fit-content;
+    padding: 10px;
 }

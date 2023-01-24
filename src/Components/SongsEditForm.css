@@ -1,0 +1,45 @@
+.edit {
+    display: grid;
+    grid-template-columns: .25fr 1fr;
+    margin-top: 40px;
+    width: 80%;
+    background-image: url("/public/vintage-cassette.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: Souvenir-Bold;
+}
+
+.edit form {
+    font-size: 34px;
+    letter-spacing: 2px;
+    text-shadow: #34231c 3px 4px 1px;
+    color: #f1d097;
+    width: 90%;
+}
+
+.edit form input {
+    background-color: #80634b;
+    color: #f1d097;
+    font-size: 16px; 
+}
+
+.edit form .submitButton {
+    background-color:#91351b;
+    font-family: Souvenir-Bold;
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+.edit .form-aside {
+    grid-column: 1;
+    display: grid;
+    grid-template-rows: auto;
+}
+
+.edit .form-aside h2 {
+    color: #de5028;
+    text-shadow: #34231c 2px 2px 2px;
+    text-decoration: underline;
+    text-decoration-color:#34231c;
+}

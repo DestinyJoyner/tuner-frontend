@@ -2,6 +2,7 @@ import { useState, useEffect, } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useContextProvider } from "./Provider";
 import Form from "../ReusableComponents/Form";
+import "./SongsEditForm.css"
 
 function SongsEditForm() {
     const {API, axios} = useContextProvider()
@@ -28,8 +29,12 @@ function SongsEditForm() {
     }, [id])
 
     return (
-        <div className="edit">
-            <h2>Edit Form</h2>
+        <div className="edit center-page">
+            <aside className="form-aside">
+                <h2>Edit Song Info</h2>
+                <p>Back Button</p>
+            </aside>
+            
             <Form 
             submitFunction={handleSubmit}
             stateVar={editForm}
