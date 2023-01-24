@@ -1,7 +1,8 @@
 import { useState, useEffect, } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { useContextProvider } from "./Provider";
 import Form from "../ReusableComponents/Form";
+import back from "../assets/music-back-icon.png"
 import "./SongsEditForm.css"
 
 function SongsEditForm() {
@@ -31,8 +32,11 @@ function SongsEditForm() {
     return (
         <div className="edit center-page">
             <aside className="form-aside">
+                <div className="music-notes"></div>
                 <h2>Edit Song Info</h2>
-                <p>Back Button</p>
+                <Link to = {`/songs/${id}`}>
+                    <img src = {back} alt="back-button" />
+                </Link>
             </aside>
             
             <Form 

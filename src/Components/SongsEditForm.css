@@ -35,6 +35,10 @@
     grid-column: 1;
     display: grid;
     grid-template-rows: auto;
+    align-items: center;
+    background-color: #5d4532;
+    border:2px solid#91351b;
+    border-radius: 15px;
 }
 
 .edit .form-aside h2 {
@@ -42,4 +46,15 @@
     text-shadow: #34231c 2px 2px 2px;
     text-decoration: underline;
     text-decoration-color:#34231c;
+    animation: beat 1.5s linear infinite;
+    grid-row: 1;
 }
+
+.music-notes {
+    background-image: url("/public/music-notes.png");
+    animation: rain 3s linear infinite;
+    height: 100%;
+}
+
+
+  

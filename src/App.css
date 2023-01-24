@@ -10,3 +10,26 @@
     cursor: pointer;
 
 }
+
+@keyframes beat{
+    0% { transform: scale(1); }
+    100% {transform: scale(1.2); }
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-100%, 0);
+    }
+  }
+
+  @keyframes rain{
+    0%{
+        background-position: 0% 0%;
+    }
+    100%{
+        background-position: 20% 100%;
+    }
+}
