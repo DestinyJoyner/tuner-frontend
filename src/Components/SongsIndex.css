@@ -12,12 +12,42 @@
     text-shadow: rgb(3, 3, 87) 3px 2px 2px;
 }
 
-.index h1 {
+.index .index-top-header{
     grid-row: 1;
     font-family: AttackGraffiti;
-    font-size: 50px;
+    font-size: 40px;
     letter-spacing: 8px;
-    
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    margin: 20px;
+    background: linear-gradient(to right, #ff2d65, #fb5c3c)
+}
+
+.index-top-header img {
+    height: 50px; 
+    animation: beat 1s linear infinite;
+}
+
+.index-top-header h1 {
+    font-size: 40px;
+    margin: 0;
+}
+
+.song-headers {
+    width:100%;
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    font-family: AttackGraffiti;
+}
+.song-headers h3 {
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 30px;
+    letter-spacing: 5px;
+    color:#d73bae ;
 }
 
 .index .song {
@@ -27,14 +57,26 @@
     width: 100%;
     color: yellow;
     font-size: 18px;
-    /* font-family: FaseBulan; */
+    border-bottom: rgb(3, 3, 87) solid 1px;
     font-family: BouncyThin;
     letter-spacing: 2px;
 }
 
+.song p:nth-child(3) {
+    color: #B026FF;
+}
+
+ .song p, .song h3 {
+    height: 100%;
+    border-right: rgb(3, 3, 87) solid 2px;
+    
+ }
+
 .index a {
     color: #FC4C02;
+    text-decoration: none;
 }
 .index a:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
+    color: #39ff14;
 }
