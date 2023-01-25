@@ -5,10 +5,10 @@ import "./Nav.css"
 function Nav() {
     return (
         <nav className="nav">
-            <img src={turntable} alt="turntable" />
-            <Link to ="/">Home</Link>
+            <Link to ="/"><img src={turntable} alt="turntable" /></Link>
             <Link to = "/songs">Songs</Link>
             <Link to = "/songs/new">New Song</Link>
+            <Link to = "/albums">Albums</Link>
         </nav>
     );
 }
