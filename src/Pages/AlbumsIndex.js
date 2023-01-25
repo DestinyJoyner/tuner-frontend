@@ -1,10 +1,8 @@
-import React from 'react';
+import AlbumsIndexPage from "../Components/AlbumsIndexPage";
 
 function AlbumsIndex(props) {
     return (
-        <div>
-            
-        </div>
+        <AlbumsIndexPage />
     );
 }
 
