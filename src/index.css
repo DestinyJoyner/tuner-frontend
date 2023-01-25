@@ -1,6 +1,6 @@
 @font-face {
     font-family: "FaseBulan";
-    src: local("GFaseBulan"), url("./Fonts/FaseBulan.otf") format("truetype");
+    src: local("FaseBulan"), url("./Fonts/FaseBulan.otf") format("truetype");
 }
 @font-face {
     font-family: "AttackGraffiti";
@@ -25,6 +25,10 @@
 @font-face {
     font-family: "Souvenir-Bold";
     src: local("Souvenir-Bold"), url("./Fonts/Souvenir-Bold.otf") format("truetype");
+}
+@font-face {
+    font-family: "Arual";
+    src: local("Arual"), url("./Fonts/Arual.ttf") format("truetype");
 }
 
 .App {
