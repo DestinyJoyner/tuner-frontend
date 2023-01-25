@@ -2,7 +2,7 @@
     width: 80%;
     margin-top: 60px;
     font-family: FaseBulan ;
-    background-color: #0a3660e9;
+    background-color: #395773df;
     border-radius: 15px;
     display: grid;
     justify-items: center;
@@ -26,6 +26,21 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
     row-gap: 20px;
+    justify-items: center;
+}
+.albums a {
+    text-decoration: none;
+}
+.album:hover {
+    transform: scale(1.1);
+    border: 1px solid #fb5c3c;
+}
+
+.album {
+    background-color: #033049b9;
+    border:#0871da 1px solid;
+    border-radius: 15px;
+    width: 70%;
 }
 
 .album h2 {
@@ -35,6 +50,8 @@
     letter-spacing: 1px;
 }
 
+
+
 .album p {
     color: #000001;
     font-size: 20px;
@@ -42,4 +59,5 @@
 
 .album img {
     height: 120px;
+    margin-top: 10px;
 }
