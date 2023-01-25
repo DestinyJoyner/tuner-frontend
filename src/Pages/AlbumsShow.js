@@ -1,10 +1,9 @@
-import React from 'react';
+import AlbumsShowPage from "../Components/AlbumsShowPage";
+
 
 function AlbumsShow(props) {
     return (
-        <div>
-            
-        </div>
+        <AlbumsShowPage />
     );
 }
 
