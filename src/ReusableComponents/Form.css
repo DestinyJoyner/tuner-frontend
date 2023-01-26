@@ -20,7 +20,7 @@
     width: fit-content;
 }
 
-.form label:nth-child(5) span span svg {
+.form label span span svg {
     position: relative;
     left: -40%;
     bottom: -2px;

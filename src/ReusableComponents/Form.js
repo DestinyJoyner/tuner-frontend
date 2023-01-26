@@ -22,11 +22,21 @@ function Form({submitFunction, stateVar, setFunction, checkboxVar, checkboxFunct
         stateVar = {stateVar}
         setFunction = {setFunction}  />
 
+       {albums ?
         <AlbumsDropdown
         value = {"album"}
         stateVar={stateVar}
         setFunction={setFunction}
-        albums={albums} />
+        albums={albums} /> :
+        <TextInput 
+        title = {"Album"}
+        value = {"album"}
+        stateVar = {stateVar}
+        setFunction = {setFunction} 
+        read = {true}
+        />
+       }
+
 
         <TextInput
         title = {"Length"}
