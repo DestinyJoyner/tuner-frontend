@@ -95,11 +95,14 @@
     
  }
 
-.index a {
+.index a:first-child {
     color: #FC4C02;
     text-decoration: none;
 }
-.index a:hover {
-    transform: scale(1.1);
+.index a:first-child:hover {
     color: #39ff14;
+}
+
+.index a:last-child:hover{
+    color: #ff2d65;
 }

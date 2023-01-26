@@ -11,7 +11,8 @@
     background-position: center;
 }
 
-.cursor:hover {
+
+.cursor:hover, span.icon-container:hover {
     cursor: pointer;
 }
 
@@ -44,6 +45,7 @@
    color:transparent;
    -webkit-background-clip:text;
 }
+
 
 @keyframes beat {
     0% {

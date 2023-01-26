@@ -13,7 +13,7 @@ function CheckboxInput({idValue, value, stateVar, checkboxVar, checkboxFunction,
         // functionality to update the is_favorite value where ever the checkbox is outside of a form
         if(idValue){
             axios.put(`${API}/songs/${idValue}`, {...stateVar, [value]: !checkboxVar})
-            .then(()=> alert(`${stateVar.name}'s favorite status has been changed.`))
+            .then(()=> {})
             .catch(err => console.log(err))
         }
     }
