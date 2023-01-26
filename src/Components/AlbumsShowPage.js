@@ -70,7 +70,7 @@ function AlbumsShowPage() {
         axios.get(`${API}/albums/${id}/songs`)
         .then(respJson => setAlbumSongs(respJson.data))
         .catch(err => console.log(err))
-    },[id])
+    },[id, albumSongs.length])
 
     return (
         <div className='albumShow center-page '>
@@ -139,6 +139,7 @@ function AlbumsShowPage() {
             <section className="album-songs gold-text">
                 <h3 className="gold-text">Track List</h3>
                 <hr />
+                <section className="songs-list">
                 {
                     albumSongs.map(({name, time, id}) =>
                         <li key={id}>
@@ -154,6 +155,8 @@ function AlbumsShowPage() {
                         </li> 
                     )
                 }
+                </section>
+               
             </section>
             </div>
         </div>

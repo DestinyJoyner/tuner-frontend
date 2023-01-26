@@ -80,9 +80,14 @@
     padding: 20px 0;
     width: 60%;
     display: grid;
-    grid-template-rows: 15% 8% 75% ;
+    grid-template-rows: 15% 3% 75% ;
     justify-self: center;
     font-size: 20px;
+}
+
+.songs-list {
+    grid-row: 3;
+    
 }
 
 .album-songs h3 {
@@ -98,7 +103,8 @@
     margin: 0;
 }
 
-.album-songs li {
+.songs-list li {
+    margin-top: 5px;
     display: flex;
     justify-content: space-evenly;
     height: fit-content;
