@@ -18,7 +18,7 @@
     font-size: 40px;
     letter-spacing: 8px;
     display: grid;
-    grid-template-columns: 15% 70% 15%;
+    grid-template-columns: 5% 25% 40% 25% 5%;
     align-items: center;
     justify-items: center;
     width: 100%;
@@ -30,10 +30,33 @@
     height: 50px; 
     animation: beat 1s linear infinite;
 }
+.index-top-header img:first-child {
+    grid-column: 1;
+}
+.index-top-header img:nth-child(2){
+    grid-column: 5;
+}
+.show-all{
+    grid-column:2;
+}
+.show-all, .show-favorites {
+    justify-self: center;
+    border-radius: 20px;
+    font-family: AttackGraffiti ;
+    height: 40px;
+    font-size: 22px;
+    background: #B026FF;
+    border: 1px solid #39ff14;
+}
+
+.show-favorites {
+    grid-column: 4;
+}
 
 .index-top-header h1 {
     font-size: 40px;
     margin: 0;
+    grid-column: 3;
 }
 
 .song-headers {
