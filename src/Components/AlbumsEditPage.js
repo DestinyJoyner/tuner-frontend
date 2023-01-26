@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useContextProvider } from "./Provider";
 import TextInput from "../ReusableComponents/TextInput";
+import "./AlbumsEditPage.css"
 
 
-function AlbumsEditPage({albumSetFunction}) {
+function AlbumsEditPage({albumSetFunction, toggleButton}) {
     const {API, axios} = useContextProvider()
     const {id} = useParams()
     const [editAlbum, setEditAlbum] = useState({})
@@ -14,6 +15,7 @@ function AlbumsEditPage({albumSetFunction}) {
         axios.put(`${API}/albums/${id}`, editAlbum)
         .then(respJson => albumSetFunction(respJson.data))
         .catch(err => console.log(err))
+        toggleButton(false) 
     }
 
     useEffect(() => {
@@ -23,7 +25,9 @@ function AlbumsEditPage({albumSetFunction}) {
     },[id])
 
     return (
-        <form onSubmit={(event) =>handleSubmit(event)}>
+        <form 
+        className="album-edit gold-text"
+        onSubmit={(event) =>handleSubmit(event)}>
             <TextInput
             title ={"Album Name"}
             value={"album_name"}
@@ -48,7 +52,9 @@ function AlbumsEditPage({albumSetFunction}) {
             stateVar={editAlbum}
             setFunction={setEditAlbum}/>
 
-            <input type="submit" />
+            <input 
+            className="gold-text cursor"
+            type="submit" />
         </form>
     );
 }
