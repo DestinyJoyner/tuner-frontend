@@ -1,23 +1,24 @@
 import { useContext, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ContextData } from "./Provider";
 import dj from "../assets/dj-green.png"
 import "./SongsIndex.css"
 
 function SongsIndex() {
     const { API, axios} = useContext(ContextData)
+    const navigate = useNavigate()
     const [songs, setSongs] = useState([])
 
     function getFavorites() {
         axios.get(`${API}/songs?is_favorite=true`)
         .then(respJson => setSongs(respJson.data))
-        .catch(err => console.log(err))
+        .catch(err => navigate("/*"))
     }
 
     function getAll() {
         axios.get(`${API}/songs`)
         .then(respJson => setSongs(respJson.data))
-        .catch(err => console.log(err))
+        .catch(err => navigate("/*"))
     }
 
     useEffect(() => {

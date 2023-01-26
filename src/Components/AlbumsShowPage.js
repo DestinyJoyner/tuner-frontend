@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useContextProvider } from "./Provider";
 import TextInput from "../ReusableComponents/TextInput";
 import CheckboxInput from "../ReusableComponents/CheckboxInput";
@@ -15,6 +15,7 @@ import "./AlbumsShowPage.css"
 function AlbumsShowPage() {
     const {API, axios} = useContextProvider()
     const {id} = useParams()
+    const navigate = useNavigate()
     const [thisAlbum, setThisAlbum] = useState({})
     const [albumSongs, setAlbumSongs] = useState([])
     const [showEditForm, setShowEditForm] = useState(false)
@@ -31,8 +32,8 @@ function AlbumsShowPage() {
 
     function deleteSong (value) {
         axios.delete(`${API}/songs/${value}`)
-            .then(() => console.log(`deleted`))
-            .catch(err => console.log(err))
+            .then(() => {})
+            .catch(err => navigate("/*"))
         // update albumSongs data on component
         const newAlbumSongs = albumSongs.filter(({id}) => value !== id)
         setAlbumSongs(newAlbumSongs)
@@ -52,7 +53,7 @@ function AlbumsShowPage() {
             const updatedSongs = [...albumSongs, respJson.data]
             setAlbumSongs(updatedSongs)
         })
-        .catch(err => console.log(err))
+        .catch(err => navigate("/*"))
         setNewAlbumSong({
             name: "",
             artist: "",
@@ -69,7 +70,7 @@ function AlbumsShowPage() {
 
         axios.get(`${API}/albums/${id}/songs`)
         .then(respJson => setAlbumSongs(respJson.data))
-        .catch(err => console.log(err))
+        .catch(err => navigate("/*"))
     },[id, albumSongs.length])
 
     return (

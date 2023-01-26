@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContextProvider } from "./Provider";
 import { MdDeleteForever } from "react-icons/md"
 import cd from "../assets/cd.png"
@@ -8,6 +8,7 @@ import "./AlbumsIndexPage.css"
 
 function AlbumsIndexPage() {
     const {API, axios} = useContextProvider()
+    const navigate = useNavigate()
     const [albums, setAlbums] = useState([])
 
     function deleteSong (value) {
@@ -22,7 +23,7 @@ function AlbumsIndexPage() {
     useEffect(() => {
         axios.get(`${API}/albums`)
         .then(respJson => setAlbums(respJson.data))
-        .catch(err => console.log(err))
+        .catch(err => navigate("/*"))
     },[]) 
 
     return (

@@ -31,7 +31,7 @@ function SongsNewForm() {
         
         axios.post(`${API}/songs`, {...newForm, ["album_id"]: data.id})
         .then(() => navigate("/songs"))
-        .catch(err => console.log(err)) 
+        .catch(err => navigate("/*")) 
     }
 
     function handleSubmit(e) {
@@ -42,7 +42,7 @@ function SongsNewForm() {
         else {
             axios.post(`${API}/songs`, {...newForm, ["album_id"]: albumId})
             .then(() => navigate("/songs"))
-            .catch(err => console.log(err)) 
+            .catch(err => navigate("/*")) 
             setAlbumId("")
         }
     }
@@ -50,7 +50,7 @@ function SongsNewForm() {
     useEffect(() => {
         axios.get(`${API}/albums`)
         .then(respJson => setAlbums(respJson.data))
-        .catch(err => console.log(err))
+        .catch(err => navigate("/*"))
     },[])
 
     return (

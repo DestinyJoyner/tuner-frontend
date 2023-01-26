@@ -17,10 +17,10 @@ function SongsShow() {
     const [favorite, setFavorite] = useState(false)
 
     function deletePrompt() {
-        // create notification modal
+        // Possible? (TBD) create notification modal
         axios.delete(`${API}/songs/${id}`)
         .then(() => navigate('/songs'))
-        .catch(err => console.log(err))
+        .catch(err => navigate("/*"))
     }
 
     useEffect(() => {
@@ -29,7 +29,7 @@ function SongsShow() {
             setThisSong(respJson.data)
             setFavorite(respJson.data.is_favorite)
         })
-        .catch(err => console.log(err))
+        .catch(err => navigate("/*"))
     },[id])
 
 
@@ -67,7 +67,7 @@ function SongsShow() {
                     size ={"40px"}
                     color= {"white"} />
                 </Link>
-                {/* find id of next song (array of id's from use effect) to go to show page of next song*/}
+                {/* Possible? (TBD) find id of next song (array of id's from use effect) to go to show page of next song*/}
                 <AiFillFastForward
                 size={"30px"}
                 color={"white"} />

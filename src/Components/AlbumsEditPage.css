@@ -24,4 +24,5 @@
 .album-edit input {
     height: 20px;
     border-radius: 15px;
+    width: 200px;
 }

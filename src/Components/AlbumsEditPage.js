@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useContextProvider } from "./Provider";
 import TextInput from "../ReusableComponents/TextInput";
 import "./AlbumsEditPage.css"
@@ -8,20 +8,21 @@ import "./AlbumsEditPage.css"
 function AlbumsEditPage({albumSetFunction, toggleButton}) {
     const {API, axios} = useContextProvider()
     const {id} = useParams()
+    const navigate = useNavigate()
     const [editAlbum, setEditAlbum] = useState({})
 
     function handleSubmit(e) {
         e.preventDefault()
         axios.put(`${API}/albums/${id}`, editAlbum)
         .then(respJson => albumSetFunction(respJson.data))
-        .catch(err => console.log(err))
+        .catch(err => navigate("/*"))
         toggleButton(false) 
     }
 
     useEffect(() => {
         axios.get(`${API}/albums/${id}`)
         .then(respJson => setEditAlbum(respJson.data))
-        .catch(err => console.log(err))
+        .catch(err => navigate("/*"))
     },[id])
 
     return (

@@ -16,8 +16,8 @@ function SongsEditForm() {
        e.preventDefault()
        
        axios.put(`${API}/songs/${id}`, editForm)
-       .then(() => navigate(`/songs/${id}`)
-       .catch(err => console.log(err))) 
+       .then(() => navigate(`/songs/${id}`))
+       .catch(err => navigate("/*")) 
     }
 
     useEffect(() => {
@@ -26,7 +26,7 @@ function SongsEditForm() {
             setEditForm(respJson.data)
             setChecked(respJson.data.is_favorite)
         })
-        .catch(err => console.log(err))
+        .catch(err => navigate("/*"))
     }, [id])
 
     return (
