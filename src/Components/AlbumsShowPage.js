@@ -28,10 +28,11 @@ function AlbumsShowPage() {
         axios.delete(`${API}/songs/${value}`)
             .then(() => console.log(`deleted`))
             .catch(err => console.log(err))
-        // updated songs data on component
+        // update albumSongs data on component
         const newAlbumSongs = albumSongs.filter(({id}) => value !== id)
         setAlbumSongs(newAlbumSongs)
     }
+
     function addDefaultAlbumValues(obj) {
         obj.artist = thisAlbum.album_artist
         obj.album = thisAlbum.album_name
