@@ -30,11 +30,11 @@ function SongsIndex() {
             </div>
             {
                 songs.length > 0 &&
-                songs.map(({name, artist, album, id}) => 
+                songs.map(({name, artist, album, album_id, id}) => 
                     <div className="song" key = {id}>
                         <Link to = {`/songs/${id}`}><h3>"{name}"</h3></Link>
                         <p>{artist}</p>
-                        <p>{album}</p>
+                        <Link to={`/albums/${album_id}`}><p>{album}</p></Link>
                     </div>
                 )
             }
