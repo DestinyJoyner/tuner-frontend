@@ -7,7 +7,7 @@ import back from "../assets/music-back-new.png"
 import "./SongsNewForm.css"
 
 function SongsNewForm() {
-    const {API, axios} = useContextProvider()
+    const {API, axios, albumId, setAlbumId} = useContextProvider()
     const navigate = useNavigate()
     const [albums, setAlbums] = useState([])
     const [newForm, setNewForm] = useState({
@@ -20,52 +20,40 @@ function SongsNewForm() {
     const [checked, setChecked] = useState(false)
 
     // function to create new album and retrieve id if already stored album isn't selected
-    function newAlbum(obj) {
-    axios.post(`${API}/albums`, {
+    async function newAlbum(obj) {
+        const value =
+     await axios.post(`${API}/albums`, {
         album_name : obj.album,
         album_artist : obj.artist,
         released : null,
         units_sold: null})
-    .then(respJson => setNewForm({...obj, ["album_id"]: respJson.data.id}))
-    .catch(err => console.log(err))
-       
-        // else {
-        //    const albumId = axios.post(`${API}/albums`, {
-        //         album_name : obj.album,
-        //         album_artist : obj.artist,
-        //         released : null,
-        //         units_sold: null})
-        //     .then(respJson => respJson.data.id)
-        //     .catch(err => console.log(err))
-           
-        //     return albumId
-
-            // axios.post(`${API}/albums`, {
-            //     album_name : obj.album,
-            //     album_artist : obj.artist,
-            //     released : null,
-            //     units_sold: null})
-            // .then(respJson => setNewForm({...obj, album_id: respJson.id}))
-            // .catch(err => console.log(err))
-        // } 
-        
+        const {data} = await value
+        axios.post(`${API}/songs`, {...newForm, ["album_id"]: data.id})
+        .then(() => navigate("/songs"))
+        .catch(err => console.log(err)) 
+        // setAlbumId("")
+        // setNewForm({...newForm, ["album_id"]: data.id})
+        // setAlbumId(data.id)
     }
 
-     function handleSubmit(e) {
-        e.preventDefault()
-        const album = albums.find(({album_name}) => newForm.album === album_name )
-       
-        if(!album){
+    function handleSubmit(e) {
+        e.preventDefault()       
+        if(!albumId){
            newAlbum(newForm)
-           alert(`Create new album, ${newForm.album}?`)
+        //    setNewForm({...newForm, ["album_id"]: albumId})
         }
         else {
-            setNewForm({...newForm, ["album_id"]: album.id})
+            // setNewForm({...newForm, ["album_id"]: albumId})
+            axios.post(`${API}/songs`, {...newForm, ["album_id"]: albumId})
+        .then(() => navigate("/songs"))
+        .catch(err => console.log(err)) 
+        setAlbumId("")
         }
         
-        // axios.post(`${API}/songs`, newForm)
+        // axios.post(`${API}/songs`, {...newForm, ["album_id"]: albumId})
         // .then(() => navigate("/songs"))
         // .catch(err => console.log(err)) 
+        // setAlbumId("")
     }
    
     useEffect(() => {
