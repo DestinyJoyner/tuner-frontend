@@ -9,11 +9,14 @@ export function useContextProvider() {
 
 function Provider({children}) {
     const API = process.env.REACT_APP_API_URL
+    const [albumId, setAlbumId] = useState("")
 
     return (
        <ContextData.Provider value ={{
         API,
         axios,
+        albumId,
+        setAlbumId,
        }}>
         <Nav />
        

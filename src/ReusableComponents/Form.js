@@ -1,8 +1,9 @@
 import TextInput from "./TextInput";
 import CheckboxInput from "./CheckboxInput";
+import AlbumsDropdown from "./AlbumsDropdown";
 import "./Form.css"
 
-function Form({submitFunction, stateVar, setFunction, checkboxVar, checkboxFunction}) {
+function Form({submitFunction, stateVar, setFunction, checkboxVar, checkboxFunction, albums}) {
 
     return (
        <form
@@ -21,11 +22,11 @@ function Form({submitFunction, stateVar, setFunction, checkboxVar, checkboxFunct
         stateVar = {stateVar}
         setFunction = {setFunction}  />
 
-        <TextInput
-        title = {"Album"}
+        <AlbumsDropdown
         value = {"album"}
-        stateVar = {stateVar}
-        setFunction = {setFunction}   />
+        stateVar={stateVar}
+        setFunction={setFunction}
+        albums={albums} />
 
         <TextInput
         title = {"Length"}
