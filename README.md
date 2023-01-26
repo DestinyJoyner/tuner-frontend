@@ -1,25 +1,12 @@
 [![Pursuit Logo](https://avatars1.githubusercontent.com/u/5825944?s=200&v=4)](https://pursuit.org)
 
 # Tuner Front-End
-
+![Budget-App-Screenshots](/public/Tuner-App-READme.png)
 ## Getting Started
 
-- keep the backend running, open a new tab
-- `cd` to the front-end directory
-- `npm i`
-- `touch .env`
-- add the correct environmental variables
-- `npm start`
-- `npm test` to run cypress tests
-
-> _Note_: Remember to `git add`, `git commit` and `git push` regularly
-
-Using the [Tuner API that you built](https://github.com/9-1-pursuit/lab-express-sql-seed-read), you are going to create a frontend-only app.
-
-Don't forget to keep your back-end API running during this build/
+[Tuner API For This App](https://github.com/DestinyJoyner/lab-express-sql-seed-read), 
 
 #### Nav Bar
-
 At the top of your app you should have a navigation bar.
 
 - It displays a links to the route (`/songs`) at the top of the page.
