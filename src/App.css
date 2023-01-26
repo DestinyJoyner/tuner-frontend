@@ -11,7 +11,8 @@
     background-position: center;
 }
 
-.cursor:hover {
+
+.cursor:hover, span.icon-container:hover {
     cursor: pointer;
 }
 
@@ -30,6 +31,7 @@
     border-radius: 15px;
 }
 
+
 .gold-text {
     background-image: linear-gradient(
 	to right,
@@ -44,6 +46,7 @@
    color:transparent;
    -webkit-background-clip:text;
 }
+
 
 @keyframes beat {
     0% {

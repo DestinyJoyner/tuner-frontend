@@ -1,0 +1,31 @@
+.error {
+    background-color: rgba(0, 0, 0, 0.793);
+    color: red;
+    border: black;
+    width: 70%;
+    margin-top: 8%;
+    display: grid;
+    justify-items: center;
+    font-family: AttackGraffiti;
+    font-size: 22px;
+}
+.error img {
+    height: 300px;
+   
+    position:relative;
+    top: -40px;
+}
+.error h1 {
+    margin: 0;
+}
+
+.error a button {
+    position:relative;
+    top: -20px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: red;
+    border: 2px solid black;
+    font-family: street;
+    font-size: 40px;
+}

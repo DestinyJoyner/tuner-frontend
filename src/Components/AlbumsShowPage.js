@@ -3,11 +3,13 @@ import { useParams, Link } from "react-router-dom";
 import { useContextProvider } from "./Provider";
 import TextInput from "../ReusableComponents/TextInput";
 import CheckboxInput from "../ReusableComponents/CheckboxInput";
+import AlbumsEditPage from "./AlbumsEditPage";
 import { AiFillFastBackward } from "react-icons/ai"
 import { MdDeleteForever } from "react-icons/md"
 import plaques from "../assets/album-plaques.png"
 import cd from "../assets/cd.png"
 import addSong from "../assets/add-song-gold.png"
+import edit from "../assets/edit-file-gold.png"
 import "./AlbumsShowPage.css"
     
 function AlbumsShowPage() {
@@ -15,6 +17,7 @@ function AlbumsShowPage() {
     const {id} = useParams()
     const [thisAlbum, setThisAlbum] = useState({})
     const [albumSongs, setAlbumSongs] = useState([])
+    const [showEditForm, setShowEditForm] = useState(false)
     const [checked, setChecked] = useState(false)
     const [newAlbumSong, setNewAlbumSong] = useState({
         name: "",
@@ -23,6 +26,8 @@ function AlbumsShowPage() {
         time: "",
         is_favorite: checked,
     })
+
+
 
     function deleteSong (value) {
         axios.delete(`${API}/songs/${value}`)
@@ -65,7 +70,7 @@ function AlbumsShowPage() {
         axios.get(`${API}/albums/${id}/songs`)
         .then(respJson => setAlbumSongs(respJson.data))
         .catch(err => console.log(err))
-    },[id])
+    },[id, albumSongs.length])
 
     return (
         <div className='albumShow center-page '>
@@ -79,7 +84,6 @@ function AlbumsShowPage() {
                     value={'name'}
                     stateVar={newAlbumSong}
                     setFunction={setNewAlbumSong}/>
-                    
                     <TextInput 
                     title={'Length'}
                     value={'time'}
@@ -106,7 +110,21 @@ function AlbumsShowPage() {
             </aside>
             <div className="cover center-page background-image">
             <img src={plaques} alt="album-plaques" />
-            <section className="album-stats gold-text ">
+
+            <button 
+            className="cursor"
+            onClick={() => setShowEditForm(!showEditForm)}>
+                <img src={edit} alt="edit" />
+            </button>
+            {
+                showEditForm ? 
+                <section className="album-edit-cover">
+                    <AlbumsEditPage 
+                    albumSetFunction={setThisAlbum}
+                    toggleButton={setShowEditForm} />
+                </section>
+                 :
+                <section className="album-stats gold-text ">
                 <img src ={cd} alt="cd" />
                 <p>
                     <span>Album: {thisAlbum.album_name}</span>
@@ -115,9 +133,13 @@ function AlbumsShowPage() {
                     <span>Copies Sold: {thisAlbum.units_sold}</span>
                 </p>
             </section>
+            }
+            
+            
             <section className="album-songs gold-text">
                 <h3 className="gold-text">Track List</h3>
                 <hr />
+                <section className="songs-list">
                 {
                     albumSongs.map(({name, time, id}) =>
                         <li key={id}>
@@ -133,6 +155,8 @@ function AlbumsShowPage() {
                         </li> 
                     )
                 }
+                </section>
+               
             </section>
             </div>
         </div>

@@ -1,0 +1,27 @@
+.album-edit {
+    display: grid;
+    align-items: left;
+    row-gap: 5px;
+    
+}
+
+.album-edit input[type=submit] {
+    width: 30%;
+    height: 25px;
+    justify-self: center;
+    margin: 5px;
+    border: 2px solid silver;
+    font-family: Arual;
+    font-size: 18px;
+}
+
+.album-edit label {
+    width: fit-content;
+    margin-left: 50px;
+    font-size: 20px;
+}
+
+.album-edit input {
+    height: 20px;
+    border-radius: 15px;
+}

@@ -8,18 +8,35 @@ function SongsIndex() {
     const { API, axios} = useContext(ContextData)
     const [songs, setSongs] = useState([])
 
+    function getFavorites() {
+        axios.get(`${API}/songs?is_favorite=true`)
+        .then(respJson => setSongs(respJson.data))
+        .catch(err => console.log(err))
+    }
 
-    useEffect(() => {
+    function getAll() {
         axios.get(`${API}/songs`)
         .then(respJson => setSongs(respJson.data))
         .catch(err => console.log(err))
+    }
+
+    useEffect(() => {
+       getAll()
     }, [])
 
     return (
         <div className="index center-page">
             <section className="index-top-header">
                 <img src ={dj} alt="dj" />
+                <button
+                className="show-all cursor"
+                onClick={() => getAll()}
+                >All</button>
                 <h1>SONGS</h1>
+                <button
+                className="show-favorites cursor"
+                onClick={() => getFavorites()}
+                >Favorites</button>
                 <img src ={dj} alt="dj" />
             </section>
         
@@ -30,11 +47,11 @@ function SongsIndex() {
             </div>
             {
                 songs.length > 0 &&
-                songs.map(({name, artist, album, id}) => 
+                songs.map(({name, artist, album, album_id, id}) => 
                     <div className="song" key = {id}>
                         <Link to = {`/songs/${id}`}><h3>"{name}"</h3></Link>
                         <p>{artist}</p>
-                        <p>{album}</p>
+                        <Link to={`/albums/${album_id}`}><p>{album}</p></Link>
                     </div>
                 )
             }
