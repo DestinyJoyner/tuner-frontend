@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { useContextProvider } from "./Provider";
 import TextInput from "../ReusableComponents/TextInput";
 import CheckboxInput from "../ReusableComponents/CheckboxInput";
+import AlbumsEditPage from "./AlbumsEditPage";
 import { AiFillFastBackward } from "react-icons/ai"
 import { MdDeleteForever } from "react-icons/md"
 import plaques from "../assets/album-plaques.png"
@@ -79,7 +80,6 @@ function AlbumsShowPage() {
                     value={'name'}
                     stateVar={newAlbumSong}
                     setFunction={setNewAlbumSong}/>
-                    
                     <TextInput 
                     title={'Length'}
                     value={'time'}
@@ -106,6 +106,7 @@ function AlbumsShowPage() {
             </aside>
             <div className="cover center-page background-image">
             <img src={plaques} alt="album-plaques" />
+            <AlbumsEditPage albumSetFunction={setThisAlbum} />
             <section className="album-stats gold-text ">
                 <img src ={cd} alt="cd" />
                 <p>
