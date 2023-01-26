@@ -1,7 +1,7 @@
 [![Pursuit Logo](https://avatars1.githubusercontent.com/u/5825944?s=200&v=4)](https://pursuit.org)
 
 # Tuner Front-End
-![Budget-App-Screenshots](/public/Tuner-App-READme.png)
+![Tuner-App-Screenshots](/public/Tuner-App-READme.png)
 ## Getting Started
 
 [Tuner API For This App](https://github.com/DestinyJoyner/lab-express-sql-seed-read), 
