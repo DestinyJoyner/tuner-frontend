@@ -87,7 +87,7 @@
     grid-column: 2;
     background-color: black;
     display: grid;
-    grid-template-rows: 20vh 80vh;
+    grid-template-rows: 20vh 70vh;
     
 }
 

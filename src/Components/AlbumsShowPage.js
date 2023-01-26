@@ -3,6 +3,8 @@ import { useParams, Link } from "react-router-dom";
 import { useContextProvider } from "./Provider";
 import TextInput from "../ReusableComponents/TextInput";
 import CheckboxInput from "../ReusableComponents/CheckboxInput";
+import { AiFillFastBackward } from "react-icons/ai"
+import { MdDeleteForever } from "react-icons/md"
 import plaques from "../assets/album-plaques.png"
 import cd from "../assets/cd.png"
 import addSong from "../assets/add-song-gold.png"
@@ -22,6 +24,14 @@ function AlbumsShowPage() {
         is_favorite: checked,
     })
 
+    function deleteSong (value) {
+        axios.delete(`${API}/songs/${value}`)
+            .then(() => console.log(`deleted`))
+            .catch(err => console.log(err))
+        // updated songs data on component
+        const newAlbumSongs = albumSongs.filter(({id}) => value !== id)
+        setAlbumSongs(newAlbumSongs)
+    }
     function addDefaultAlbumValues(obj) {
         obj.artist = thisAlbum.album_artist
         obj.album = thisAlbum.album_name
@@ -87,6 +97,11 @@ function AlbumsShowPage() {
                     className="gold-text cursor" />
 
                 </form>
+                <Link to = {`/albums`}>
+                    <AiFillFastBackward
+                    size={"50px"}
+                    color={"#A57D02"} />
+                </Link>
             </aside>
             <div className="cover center-page background-image">
             <img src={plaques} alt="album-plaques" />
@@ -109,6 +124,11 @@ function AlbumsShowPage() {
                                 <span>{name}</span>
                             </Link>
                             <span>{time}</span>
+                            <span
+                            className="cursor"
+                            onClick={() => deleteSong(id)}>
+                                <MdDeleteForever size = {"20px"} color={"#A57D02"} />
+                            </span>
                         </li> 
                     )
                 }
