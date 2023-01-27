@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useContextProvider } from "./Provider";
-import TextInput from "../ReusableComponents/TextInput";
-import CheckboxInput from "../ReusableComponents/CheckboxInput";
+import Form from "../ReusableComponents/Form";
 import AlbumsEditPage from "./AlbumsEditPage";
 import { AiFillFastBackward } from "react-icons/ai"
 import { MdDeleteForever } from "react-icons/md"
@@ -77,7 +76,17 @@ function AlbumsShowPage() {
         <div className='albumShow center-page '>
             <aside className="new-album-song gold-text">
                 <img src={addSong} alt="add-song" />
-                <form 
+                <Form 
+                submitFunction={handleSubmit}
+                stateVar={newAlbumSong}
+                setFunction={setNewAlbumSong}
+                checkboxVar={checked}
+                checkboxFunction={setChecked}
+                checkboxIcon={"45px"}
+                albumShow={true}
+                />
+
+                {/* <form 
                 className=""
                 onSubmit={(event) => handleSubmit(event)}>
                     <TextInput 
@@ -102,7 +111,7 @@ function AlbumsShowPage() {
                     value="Add Song To Album"
                     className="gold-text cursor" />
 
-                </form>
+                </form> */}
                 <Link to = {`/albums`}>
                     <AiFillFastBackward
                     size={"50px"}

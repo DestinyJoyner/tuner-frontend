@@ -3,7 +3,7 @@ import CheckboxInput from "./CheckboxInput";
 import AlbumsDropdown from "./AlbumsDropdown";
 import "./Form.css"
 
-function Form({submitFunction, stateVar, setFunction, checkboxVar, checkboxFunction, albums}) {
+function Form({submitFunction, stateVar, setFunction, checkboxVar, checkboxFunction, checkboxIcon, albums, albumShow}) {
 
     return (
        <form
@@ -16,18 +16,21 @@ function Form({submitFunction, stateVar, setFunction, checkboxVar, checkboxFunct
         stateVar = {stateVar}
         setFunction = {setFunction} />
 
+        {!albumShow &&
         <TextInput
         title = {"Artist"}
         value = {"artist"}
         stateVar = {stateVar}
         setFunction = {setFunction}  />
+        }
 
-       {albums ?
+       {albums &&
         <AlbumsDropdown
         value = {"album"}
         stateVar={stateVar}
         setFunction={setFunction}
-        albums={albums} /> :
+        albums={albums} /> || 
+        !albumShow &&
         <TextInput 
         title = {"Album"}
         value = {"album"}
@@ -36,7 +39,6 @@ function Form({submitFunction, stateVar, setFunction, checkboxVar, checkboxFunct
         read = {true}
         />
        }
-
 
         <TextInput
         title = {"Length"}
@@ -49,7 +51,7 @@ function Form({submitFunction, stateVar, setFunction, checkboxVar, checkboxFunct
         stateVar = {stateVar}
         checkboxVar = {checkboxVar}
         checkboxFunction = {checkboxFunction}
-        iconSize = {"60px"}
+        iconSize = {checkboxIcon}
         />
         
         <input 

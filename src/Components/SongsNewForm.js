@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useContextProvider } from "./Provider";
+import { createData } from "../ReusableComponents/axiosFunctions";
 import Form from "../ReusableComponents/Form";
-import AlbumsDropdown from "../ReusableComponents/AlbumsDropdown";
 import back from "../assets/music-back-new.png"
 import "./SongsNewForm.css"
 
@@ -67,6 +67,7 @@ function SongsNewForm() {
             setFunction={setNewForm}
             checkboxVar = {checked}
             checkboxFunction = {setChecked}
+            checkboxIcon={"60px"}
             albums={albums} 
             />     
         </div>
