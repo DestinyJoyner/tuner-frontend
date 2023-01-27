@@ -29,12 +29,7 @@ function SongsNewForm() {
             
         const value = await axios.post(`${API}/albums`, dataObj)
         const {data} = await value
-        
         createData("songs", navigate, {...newForm, ["album_id"]: data.id} )
-        
-        // axios.post(`${API}/songs`, {...newForm, ["album_id"]: data.id})
-        // .then(() => navigate("/songs"))
-        // .catch(err => navigate("/*")) 
     }
 
     function handleSubmit(e) {
@@ -43,20 +38,13 @@ function SongsNewForm() {
            newAlbum(newForm)
         }
         else {
-            createData("songs",navigate, {...newForm, ["album_id"]: albumId} )
-            // axios.post(`${API}/songs`, {...newForm, ["album_id"]: albumId})
-            // .then(() => navigate("/songs"))
-            // .catch(err => navigate("/*")) 
-            
+            createData("songs",navigate, {...newForm, ["album_id"]: albumId} ) 
             setAlbumId("")
         }
     }
    
     useEffect(() => {
         getData("albums", setAlbums)
-        // axios.get(`${API}/albums`)
-        // .then(respJson => setAlbums(respJson.data))
-        // .catch(err => navigate("/*"))
     },[])
 
     return (

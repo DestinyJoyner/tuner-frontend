@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useContextProvider } from "./Provider";
+import { getData, getData2, deleteData } from "../ReusableComponents/axiosFunctions";
 import Form from "../ReusableComponents/Form";
 import AlbumsEditPage from "./AlbumsEditPage";
 import { AiFillFastBackward } from "react-icons/ai"
@@ -27,14 +28,10 @@ function AlbumsShowPage() {
         is_favorite: checked,
     })
 
-
-
-    function deleteSong (value) {
-        axios.delete(`${API}/songs/${value}`)
-            .then(() => {})
-            .catch(err => navigate("/*"))
+    function deleteSong (idValue) {
+        deleteData("songs",idValue)
         // update albumSongs data on component
-        const newAlbumSongs = albumSongs.filter(({id}) => value !== id)
+        const newAlbumSongs = albumSongs.filter(({id}) => idValue !== id)
         setAlbumSongs(newAlbumSongs)
     }
 
@@ -47,6 +44,7 @@ function AlbumsShowPage() {
     function handleSubmit(e) {
         e.preventDefault()
         addDefaultAlbumValues(newAlbumSong)
+        
         axios.post(`${API}/songs`, newAlbumSong)
         .then(respJson => {
             const updatedSongs = [...albumSongs, respJson.data]
@@ -63,13 +61,8 @@ function AlbumsShowPage() {
     }
 
     useEffect(() => {
-        axios.get(`${API}/albums/${id}`)
-        .then(respJson => setThisAlbum(respJson.data))
-        .catch(err=> console.log(err))
-
-        axios.get(`${API}/albums/${id}/songs`)
-        .then(respJson => setAlbumSongs(respJson.data))
-        .catch(err => navigate("/*"))
+        getData("albums", setThisAlbum, id)
+        getData2("albums", "songs", id, setAlbumSongs)
     },[id, albumSongs.length])
 
     return (
@@ -86,32 +79,6 @@ function AlbumsShowPage() {
                 albumShow={true}
                 />
 
-                {/* <form 
-                className=""
-                onSubmit={(event) => handleSubmit(event)}>
-                    <TextInput 
-                    title={'Song Title'}
-                    value={'name'}
-                    stateVar={newAlbumSong}
-                    setFunction={setNewAlbumSong}/>
-                    <TextInput 
-                    title={'Length'}
-                    value={'time'}
-                    stateVar={newAlbumSong}
-                    setFunction={setNewAlbumSong}/>
-                    <CheckboxInput 
-                    value={'is_favorite'}
-                    stateVar={newAlbumSong}
-                    checkboxVar={checked}
-                    checkboxFunction={setChecked}
-                    iconSize={"45px"}/>
-
-                    <input 
-                    type="submit" 
-                    value="Add Song To Album"
-                    className="gold-text cursor" />
-
-                </form> */}
                 <Link to = {`/albums`}>
                     <AiFillFastBackward
                     size={"50px"}
@@ -142,10 +109,8 @@ function AlbumsShowPage() {
                     <span>Released: {thisAlbum.released}</span>
                     <span>Copies Sold: {thisAlbum.units_sold}</span>
                 </p>
-            </section>
+                </section>
             }
-            
-            
             <section className="album-songs gold-text">
                 <h3 className="gold-text">Track List</h3>
                 <hr />
