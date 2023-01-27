@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useContextProvider } from "./Provider";
-import { getData, getData2, deleteData } from "../ReusableComponents/axiosFunctions";
+import { getData, getData2 } from "../ReusableComponents/axiosFunctions";
+import AlbumSongs from "../ReusableComponents/AlbumSongs";
 import Form from "../ReusableComponents/Form";
 import AlbumsEditPage from "./AlbumsEditPage";
 import { AiFillFastBackward } from "react-icons/ai"
-import { MdDeleteForever } from "react-icons/md"
+
 import plaques from "../assets/album-plaques.png"
 import cd from "../assets/cd.png"
 import addSong from "../assets/add-song-gold.png"
@@ -28,12 +29,12 @@ function AlbumsShowPage() {
         is_favorite: checked,
     })
 
-    function deleteSong (idValue) {
-        deleteData("songs",idValue)
-        // update albumSongs data on component
-        const newAlbumSongs = albumSongs.filter(({id}) => idValue !== id)
-        setAlbumSongs(newAlbumSongs)
-    }
+    // function deleteSong (idValue) {
+    //     deleteData("songs",idValue)
+    //     // update albumSongs data on component
+    //     const newAlbumSongs = albumSongs.filter(({id}) => idValue !== id)
+    //     setAlbumSongs(newAlbumSongs)
+    // }
 
     function addDefaultAlbumValues(obj) {
         obj.artist = thisAlbum.album_artist
@@ -116,18 +117,12 @@ function AlbumsShowPage() {
                 <hr />
                 <section className="songs-list">
                 {
-                    albumSongs.map(({name, time, id}) =>
-                        <li key={id}>
-                            <Link to={`/songs/${id}`}>
-                                <span>{name}</span>
-                            </Link>
-                            <span>{time}</span>
-                            <span
-                            className="cursor"
-                            onClick={() => deleteSong(id)}>
-                                <MdDeleteForever size = {"20px"} color={"#A57D02"} />
-                            </span>
-                        </li> 
+                    albumSongs.map(song =>
+                        <AlbumSongs
+                        key = {song.id}
+                        songs = {song}
+                        stateVar = {albumSongs}
+                        setFunction= {setAlbumSongs}  />
                     )
                 }
                 </section>
