@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useContextProvider } from "./Provider";
-import { createData } from "../ReusableComponents/axiosFunctions";
+import { getData, createData } from "../ReusableComponents/axiosFunctions";
 import Form from "../ReusableComponents/Form";
 import back from "../assets/music-back-new.png"
 import "./SongsNewForm.css"
@@ -10,6 +10,7 @@ function SongsNewForm() {
     const {API, axios, albumId, setAlbumId} = useContextProvider()
     const navigate = useNavigate()
     const [albums, setAlbums] = useState([])
+    const [checked, setChecked] = useState(false)
     const [newForm, setNewForm] = useState({
         name: "",
         artist: "",
@@ -17,21 +18,23 @@ function SongsNewForm() {
         time: "",
         is_favorite: false
     })
-    const [checked, setChecked] = useState(false)
 
     // function to create new album and retrieve id if already stored album isn't selected
     async function newAlbum(obj) {
-        const value = await axios.post(`${API}/albums`, {
-        album_name : obj.album,
-        album_artist : obj.artist,
-        released : null,
-        units_sold: null})
-        
+        const dataObj = {
+            album_name : obj.album,
+            album_artist : obj.artist,
+            released : null,
+            units_sold: null}
+            
+        const value = await axios.post(`${API}/albums`, dataObj)
         const {data} = await value
         
-        axios.post(`${API}/songs`, {...newForm, ["album_id"]: data.id})
-        .then(() => navigate("/songs"))
-        .catch(err => navigate("/*")) 
+        createData("songs", navigate, {...newForm, ["album_id"]: data.id} )
+        
+        // axios.post(`${API}/songs`, {...newForm, ["album_id"]: data.id})
+        // .then(() => navigate("/songs"))
+        // .catch(err => navigate("/*")) 
     }
 
     function handleSubmit(e) {
@@ -40,17 +43,20 @@ function SongsNewForm() {
            newAlbum(newForm)
         }
         else {
-            axios.post(`${API}/songs`, {...newForm, ["album_id"]: albumId})
-            .then(() => navigate("/songs"))
-            .catch(err => navigate("/*")) 
+            createData("songs",navigate, {...newForm, ["album_id"]: albumId} )
+            // axios.post(`${API}/songs`, {...newForm, ["album_id"]: albumId})
+            // .then(() => navigate("/songs"))
+            // .catch(err => navigate("/*")) 
+            
             setAlbumId("")
         }
     }
    
     useEffect(() => {
-        axios.get(`${API}/albums`)
-        .then(respJson => setAlbums(respJson.data))
-        .catch(err => navigate("/*"))
+        getData("albums", setAlbums)
+        // axios.get(`${API}/albums`)
+        // .then(respJson => setAlbums(respJson.data))
+        // .catch(err => navigate("/*"))
     },[])
 
     return (
